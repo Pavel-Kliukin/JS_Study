@@ -105,6 +105,23 @@ find_average2();
 // Task 7. Make a program that ask first one number from the user. After that the program asks: ”Do you want to continue giving numbers?(y/n)”. 
 // If user answers y, the program continues to ask another number. If user answers n, program ends. In the end program prints out average of the numbers.
 
+function find_average3(){
+    let average = 0;
+    let sum = 0;
+    let counter = 0;
+    while (true){
+        let number = Number(prompt('Enter any number'))
+        sum += number;
+        counter++;
+        let users_answer = prompt('Do you want to continue giving numbers?(y/n)');
+        if (users_answer == 'n') break;
+    }
+    average = sum / counter;
+    console.log('The average of your numbers is ', average);
+}
+
+find_average3();
+
 // Task 8. Make a program that asks first how many numbers user wants to give to the program. After that program asks those numbers. In the end program prints out the smallest number that user gave.
 
 // Task 9. Make a program that asks ten numbers and in the end prints out two biggest numbers.
