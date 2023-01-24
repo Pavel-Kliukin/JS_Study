@@ -51,7 +51,7 @@ function averageSpeed(){
 averageSpeed();
 
 
-// Task 4. Make a program that asks 20 numbers from user. After that the program prints out how many of those numbers where even.
+// Task 4. Make a program that asks 5 numbers from user. After that the program prints out how many of those numbers where even.
 
 function calculating(){
     let answer = 0;
@@ -67,6 +67,23 @@ function calculating(){
 calculating();
 
 // Task 5. Make a program that asks numbers from the user, until user gives 0 and then program ends. In the end program prints out average of the numbers.
+
+function find_average(){
+    let answer = 0;
+    let sum = 0;
+    let counter = 0;
+    while (true){
+        let number = Number(prompt('Enter any number to proceed or 0 to stop'))
+        if (number == 0) break;
+        sum += number;
+        counter++;
+    }
+    answer = sum / counter;
+    console.log('The average of your numbers is ', answer);
+}
+
+find_average();
+
 
 // Task 6. Make a program that asks 25 numbers form the user. In the end program prints out average of the numbers.
 
