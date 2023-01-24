@@ -124,6 +124,21 @@ find_average3();
 
 // Task 8. Make a program that asks first how many numbers user wants to give to the program. After that program asks those numbers. In the end program prints out the smallest number that user gave.
 
+function min_of_numbers(){
+    let numbers_amount = Number(prompt('Enter the amount of numbers you want to enter'));
+    if (numbers_amount > 0) {
+        let min = Number(prompt('Enter a number'));
+        for (let i = 0; i < numbers_amount-1; i++){
+            let input = Number(prompt('Enter a number'));
+            if (input < min) min = input;
+        }
+        console.log('The minimum number you entered is ', min)
+    }
+        
+}
+
+min_of_numbers()
+
 // Task 9. Make a program that asks ten numbers and in the end prints out two biggest numbers.
 
 // Task 10. Make a program that asks ten numbers. Program calculates and prints out sum and average, also prints out the smallest and biggest number.
