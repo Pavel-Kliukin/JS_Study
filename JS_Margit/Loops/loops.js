@@ -141,4 +141,6 @@ min_of_numbers()
 
 // Task 9. Make a program that asks ten numbers and in the end prints out two biggest numbers.
 
+
+
 // Task 10. Make a program that asks ten numbers. Program calculates and prints out sum and average, also prints out the smallest and biggest number.
