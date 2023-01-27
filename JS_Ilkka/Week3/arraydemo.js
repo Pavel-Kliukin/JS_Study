@@ -40,3 +40,22 @@ for(let i=0; i<numbers.length; i++){
         resultString+=' + ';
     }
 }
+
+sum=0;
+for(const number of numbers){
+    console.log(number);
+    sum+=number;
+}
+
+let [f, s, ...rest]=numbers;
+console.log(f,s,rest)
+// 1,2,[3,4,5,6]
+
+let [,,third, ...restitems]=numbers;
+console.log(third,restitems)
+// 3,[4,5,6]
+
+
+// to swap two items
+[nubmers[2], numbers[5]]=[nubmers[5], numbers[2]];
+
