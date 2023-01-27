@@ -7,8 +7,10 @@ const person={
 }
 
 console.log(person.firstname);
+console.log(person['firstname']); // the same
 console.log(person.lastname);
 console.log(person.age);
+console.log(person['firstname'])
 
 const card={
     suite:'spades',
