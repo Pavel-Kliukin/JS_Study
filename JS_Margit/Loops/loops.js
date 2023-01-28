@@ -61,7 +61,7 @@ function calculating(){
             answer++;
         }
     }
-    console.log('There was', answer, 'even numners');
+    console.log('There was', answer, 'even numbers');
 }
 
 calculating();
@@ -137,10 +137,26 @@ function min_of_numbers(){
         
 }
 
-min_of_numbers()
+min_of_numbers();
 
 // Task 9. Make a program that asks ten numbers and in the end prints out two biggest numbers.
 
+function two_biggest(){
+    for (let i=0; i<5; i++){
+        let input = Number(prompt('Enter a number'));
+        if (i===0) {max_num1 = input} // max_num1 = first entered number
+        else if (i===1) {max_num2 = input} // max_num2 = second entered number
+        else if (input > max_num1 || input > max_num2) {
+            if (max_num1 < max_num2) max_num1 = input;
+            else if (max_num1 > max_num2) max_num2 = input;
+            else max_num1 = input;
+        }
+
+    }
+    console.log(`The two biggest numbers are ${max_num1} and ${max_num2}`)
+}
+
+two_biggest();
 
 
 // Task 10. Make a program that asks ten numbers. Program calculates and prints out sum and average, also prints out the smallest and biggest number.
