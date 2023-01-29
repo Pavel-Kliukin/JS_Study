@@ -160,3 +160,26 @@ two_biggest();
 
 
 // Task 10. Make a program that asks ten numbers. Program calculates and prints out sum and average, also prints out the smallest and biggest number.
+
+function calc(){
+    let amount_of_numbers = 5;
+    let sum = 0;
+    let average_of_numbers = 0;
+    for (let i=0; i < amount_of_numbers; i++){
+        let input = Number(prompt('Enter a number'));
+        if (i===0) {
+            min_num = input;
+            max_num = input;
+        }
+        sum += input;
+        if (input < min_num) min_num = input;
+        if (input > max_num) max_num = input;
+    }
+    average_of_numbers = sum / amount_of_numbers;
+    console.log(`The sum of numbers is ${sum}`)
+    console.log(`The average of numbers is ${average_of_numbers}`)
+    console.log(`The smallest number is ${min_num}`)
+    console.log(`The biggest number is ${max_num}`)
+}
+
+calc();
