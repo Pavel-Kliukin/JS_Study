@@ -36,6 +36,16 @@ function getAllModels(){
     return models;
 }
 
+function getCars(key, value){
+    const found=[];
+    for(const car of cars){
+        if(car[key]===value){
+            found.push(car);
+        }
+    }
+    return found;
+}
+
 
 // Make a libraly from this file
-module.exports = { getWithLicence, getWithModel, getAllModels }
+module.exports = { getWithLicence, getWithModel, getAllModels, getCars }
