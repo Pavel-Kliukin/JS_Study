@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "BigFlop Mark II",
+        "type": "server",
+        "processor": "MinPower",
+        "amount": 30
+    },
+    {
+        "id": 2,
+        "name": "Xunil 4.7",
+        "type": "server",
+        "processor": "piTron 3",
+        "amount": 20
+    },
+    {
+        "id": 3,
+        "name": "MaxEffect 2000",
+        "type": "tabletop",
+        "processor": "MotorOlè",
+        "amount": 30
+    },
+   
+    {
+        "id": 6,
+        "name": "hjhj",
+        "type": "ytry",
+        "processor": "gh",
+        "amount": 555
+    }
+]

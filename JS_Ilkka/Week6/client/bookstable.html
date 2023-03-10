@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <script src="bookhandlertable.js"></script>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin: 1em;
+        }
+
+        table,tr,td,th{
+            border:solid black 1px;
+            padding:0.5em;
+        }
+        thead, th{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p><label>Firstname: <input type="text" id="firstname"></label></p>
+        <p><label>Lastname: <input type="text" id="lastname"></label></p>
+        <div>
+            <button id="search">Search</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>Pages</th><th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+[
+    {
+        "firstname":"Matt",
+        "lastname":"River",
+        "books":[
+            {"name":"ABC", "pages":300, "price":30},
+            {"name":"Programming JavaScript", "pages":900, "price":50},
+            {"name":"Testing ABC", "pages":100, "price":45}
+        ]
+    },
+    {
+        "firstname":"Leila",
+        "lastname":"Hökki",
+        "books":[
+            {"name":"ABC", "pages":200, "price":30},
+            {"name":"Programming ABC", "pages":50, "price":10},
+            {"name":"Adventures of a programmer", "pages":250, "price":60}
+        ]
+    },
+    {
+        "firstname":"Vera",
+        "lastname":"River",
+        "books":[]
+    }
+]
