@@ -10,11 +10,30 @@ body {
   height: 100%;
   font-family: 'Lato', sans-serif;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-  text-align: center;
   margin-top: 3rem;
+}
+
+h2 {
+  margin: 2rem;
+}
+
+button {
+  width: 6rem;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  margin: 0.5rem 0.5rem;
+}
+
+#generationButtonsBox {
+  width: 400px;
 }
 
 #cards {
@@ -23,28 +42,38 @@ h1 {
 }
 
 .card {
-  width: 10rem;
-  height: 15rem;
+  width: 11rem;
+  height: 18rem;
   border-radius: 5px;
   background-color: rgb(48, 46, 46);
   margin: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
-.topOfCard {
-  height: 75%;
-  width: 100%;
+.idAndTypes {
+  width: 90%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.pokID {
+  margin: 0.2rem;
+}
+
+.pokemonTypeImg {
+  width: 20px;
+  height: 20px;
 }
 
 .pokemonImg {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 60%;
   filter:sepia(100%);
+  justify-content: center;
 }
 
 .pokemonImg:hover {
@@ -52,14 +81,21 @@ h1 {
 }
 
 .bottomOfCard {
-  height: 25%;
+  height: 17%;
   width: 100%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: black;
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokName{
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
 }
 
 .data {
