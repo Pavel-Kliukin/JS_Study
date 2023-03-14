@@ -9,18 +9,34 @@
 </head>
 <body>
   <h1>Pokedex</h1>
-  #generations
-  <h2>Please, choose the generation of pokemons you want to see</h2>
-  <div id="generationButtonsBox">
-    <button id="gen1" value="1" onclick="chooseGen(this.value)">Generation 1</button>
-    <button id="gen2" value="2" onclick="chooseGen(this.value)">Generation 2</button>
-    <button id="gen3" value="3" onclick="chooseGen(this.value)">Generation 3</button>
-    <button id="gen4" value="4" onclick="chooseGen(this.value)">Generation 4</button>
-    <button id="gen5" value="5" onclick="chooseGen(this.value)">Generation 5</button>
-    <button id="gen6" value="6" onclick="chooseGen(this.value)">Generation 6</button>
-    <button id="gen7" value="7" onclick="chooseGen(this.value)">Generation 7</button>
-    <button id="gen8" value="8" onclick="chooseGen(this.value)">Generation 8</button>
-    <button id="gen9" value="9" onclick="chooseGen(this.value)">Generation 9</button>
+  <div id="commonSearchBox">
+    <div id="generationsChoice">
+      <h2>Please, choose the generation of pokemons you want to see</h2>
+      <div id="generationButtonsBox">
+        <button id="gen1" value="1" onclick="chooseGen(this.value)">Generation 1</button>
+        <button id="gen2" value="2" onclick="chooseGen(this.value)">Generation 2</button>
+        <button id="gen3" value="3" onclick="chooseGen(this.value)">Generation 3</button>
+        <button id="gen4" value="4" onclick="chooseGen(this.value)">Generation 4</button>
+        <button id="gen5" value="5" onclick="chooseGen(this.value)">Generation 5</button>
+        <button id="gen6" value="6" onclick="chooseGen(this.value)">Generation 6</button>
+        <button id="gen7" value="7" onclick="chooseGen(this.value)">Generation 7</button>
+        <button id="gen8" value="8" onclick="chooseGen(this.value)">Generation 8</button>
+        <button id="gen9" value="9" onclick="chooseGen(this.value)">Generation 9</button>
+      </div>
+    </div>
+    <div id="typeChoice">
+      <h2>Choose pokemon's types to display</h2>
+      <div id="typeButtons">
+        <input type="checkbox" id="all" checked>
+        <label for="all">All types</label>
+        <input type="checkbox" id="grass">
+        <label for="grass"><img class="typeIcons" src="/assets/Grass.ico" alt="Grass"></label>
+        <input type="checkbox" id="fire">
+        <label for="fire"><img class="typeIcons" src="/assets/Fire.ico" alt="Grass"></label>
+      </div>
+
+    </div>
+
   </div>
 
   <div id="cards">
