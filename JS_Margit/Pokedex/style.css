@@ -32,6 +32,29 @@ body {
   align-items: center;
 }
 
+#commonSearchBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+#typeButtons {
+  max-width: 14rem;
+}
+
+.typeInput {
+  display: none;
+}
+
+.typeIcons {
+  width: 30px;
+  height: 30px;
+}
+
+.pressed {
+  width: 40px;
+  height: 40px;
+}
+
 #generationsChoice {
   display: flex;
   flex-direction: column;
@@ -70,7 +93,7 @@ body {
   margin: 0.2rem;
 }
 
-.typeIcons, .pokemonTypeImg {
+.pokemonTypeImg {
   width: 20px;
   height: 20px;
 }

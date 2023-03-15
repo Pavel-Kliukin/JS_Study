@@ -1,8 +1,5 @@
-const TypeArray = ['grass', 'poison', 'fire', 'flying', 'water', 'bug', 'normal',
-  'electric', 'ground', 'fairy', 'fighting', 'psychic', 'rock', 'steel', 'ice',
-  'ghost', 'dragon', 'dark']
-
-const chosenTypes = ['water', 'rock']
+let chosenTypes = []
+let outputArray = []
 
 //this function startes from index.html by button click (i = generation number)
 function chooseGen (i) {
@@ -23,7 +20,7 @@ function chooseGen (i) {
 
 // MAKE AN ARRAY OF CHOSEN POKEMON GENERATION
 function makeOutputArray (startFrom, limit) {
-  let outputArray = []
+  outputArray = []
   // getting the list of all pokemons represented by objects: {name:'pokemon name', url:'http://...'}
   fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${startFrom}`)
     .then(response => response.json())
@@ -35,10 +32,30 @@ function makeOutputArray (startFrom, limit) {
       })
       Promise.all(fetches).then(res => {
         outputArray = res
-        console.log('After Promise.all arr: ', outputArray)
-        removeNonPickedTypes(outputArray)
+        if (chosenTypes.length == 0) { // if we don't have chosen types to filter
+          output(outputArray) // we just output whole generation
+        } else { // otherwise, we filter output by chosen types
+          removeNonPickedTypes(outputArray)
+        }
       })
     })
+}
+
+//TYPE FILTER
+function typeFilter (type) {
+
+  icon = document.getElementById(type + 'Img')
+  icon.classList.toggle('pressed')
+  console.log(icon);
+
+
+  if (chosenTypes.includes(type)) {
+    chosenTypes.splice(chosenTypes.indexOf(type), 1)
+  } else {
+    chosenTypes.push(type)
+  }
+
+  removeNonPickedTypes(outputArray)
 }
 
 // DELETE FROM outputArray POKEMONES WITH NON PICKED TYPES
