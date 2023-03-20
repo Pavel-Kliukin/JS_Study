@@ -46,7 +46,6 @@ function typeFilter (type) {
 
   icon = document.getElementById(type + 'Img')
   icon.classList.toggle('pressed')
-  console.log(icon);
 
 
   if (chosenTypes.includes(type)) {
