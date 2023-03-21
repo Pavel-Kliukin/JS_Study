@@ -94,11 +94,15 @@ body {
 }
 
 #startScreenCard {
+  width: calc(var(--card-width)*2);
+  height: calc(var(--card-height)*2);
   font-family: cursive;
+  font-size: 2rem;
   color: rgb(88 199 250 / 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border-style: none;
 }
 

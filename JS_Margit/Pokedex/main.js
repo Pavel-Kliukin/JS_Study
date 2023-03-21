@@ -1,7 +1,21 @@
 let chosenTypes = []
 let outputArray = []
+let allPokemonsArray = []
 
-//this function startes from index.html by button click (i = generation number)
+// At the start of index.html we are getting the list of all pokemons 
+// It represented by objects: {name:'pokemon name', url:'http://...'}
+fetch(`https://pokeapi.co/api/v2/pokemon?limit=1015&offset=0`)
+  .then(response => response.json())
+  .then(json => {
+    const fetches = json.results.map(item => {
+      return fetch(item.url).then(res => res.json())
+    })
+    Promise.all(fetches).then(res => {
+      allPokemonsArray = res
+    })
+  })
+
+//This function startes from index.html by button click (i = generation number)
 function chooseGen (i = false) {
   i = +i - 1
   const gen = [
@@ -19,32 +33,23 @@ function chooseGen (i = false) {
 }
 
 // MAKE AN ARRAY OF CHOSEN POKEMON GENERATION
-async function makeOutputArray (startFrom, limit) {
-  outputArray = []
-  // getting the list of all pokemons represented by objects: {name:'pokemon name', url:'http://...'}
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${startFrom}`)
-    .then(response => response.json())
-    .then(json => {
+function makeOutputArray (startFrom, limit) {
+  outputArray = [...allPokemonsArray] // this is the DEEP clone of allPokemonsArray
 
-      //getting an outputArray with chosen generation or an array of all pokemons in case of search by name
-      const fetches = json.results.map(item => {
-        return fetch(item.url).then(res => res.json())
-      })
-      Promise.all(fetches).then(res => {
-        outputArray = res
-        if (chosenTypes.length == 0) { // if we don't have chosen types to filter
-          output(outputArray) // we just output whole generation
-        } else { // otherwise, we filter output by chosen types
-          removeNonPickedTypes(outputArray)
-        }
-      })
-    })
+  //Here we get an array with chosen generation of pokemons
+  outputArray = outputArray.slice(startFrom, startFrom + limit)
+
+  if (chosenTypes.length == 0) { // if we don't have chosen types to filter
+    output(outputArray) // we just output whole generation
+  } else { // otherwise, we filter output by chosen types
+    removeNonPickedTypes(outputArray)
+  }
 }
 
 //TYPE FILTER
 function typeFilter (type) {
 
-  icon = document.getElementById(type + 'Img')
+  let icon = document.getElementById(type + 'Img')
   icon.classList.toggle('pressed')
 
 
@@ -53,8 +58,11 @@ function typeFilter (type) {
   } else {
     chosenTypes.push(type)
   }
-
-  removeNonPickedTypes(outputArray)
+  if (chosenTypes.length == 0) {// if we remove all filters,
+    output(outputArray) // then we output whole generation
+  } else {
+    removeNonPickedTypes(outputArray)
+  }
 }
 
 // DELETE FROM outputArray POKEMONES WITH NON PICKED TYPES
@@ -74,6 +82,24 @@ function removeNonPickedTypes (outputArray) {
     }
   }
   output(outputArrayCopy)
+}
+
+// Search pokemon by name
+// It searches online in array of all pokemons
+
+let searchInput = document.querySelector('#pokName')
+searchInput.addEventListener('input', (event) => {
+  searchByName(event.target.value)
+})
+
+function searchByName (name) {
+  outputArray = []
+  for (const pokemon of allPokemonsArray) {
+    if (pokemon.name.toLowerCase().includes(name.toLowerCase())) {
+      outputArray.push(pokemon)
+    }
+  }
+  output(outputArray)
 }
 
 // INSERT DATA TO HTML
