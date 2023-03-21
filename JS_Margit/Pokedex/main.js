@@ -2,7 +2,7 @@ let chosenTypes = []
 let outputArray = []
 
 //this function startes from index.html by button click (i = generation number)
-function chooseGen (i) {
+function chooseGen (i = false) {
   i = +i - 1
   const gen = [
     { startFrom: 0, limit: 150 },
@@ -19,14 +19,14 @@ function chooseGen (i) {
 }
 
 // MAKE AN ARRAY OF CHOSEN POKEMON GENERATION
-function makeOutputArray (startFrom, limit) {
+async function makeOutputArray (startFrom, limit) {
   outputArray = []
   // getting the list of all pokemons represented by objects: {name:'pokemon name', url:'http://...'}
   fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${startFrom}`)
     .then(response => response.json())
     .then(json => {
 
-      //getting an outputArray with chosen generation
+      //getting an outputArray with chosen generation or an array of all pokemons in case of search by name
       const fetches = json.results.map(item => {
         return fetch(item.url).then(res => res.json())
       })
