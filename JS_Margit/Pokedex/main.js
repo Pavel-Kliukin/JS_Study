@@ -124,7 +124,6 @@ function output (data) {
 
     let src = item.sprites.other.dream_world.front_default
     if (src == null) { src = 'assets/noImage.png' }
-    console.log(src);
 
     return `
     <div class="card">
@@ -132,7 +131,7 @@ function output (data) {
         <p class="pokID">#${item.id}</p>
         <p class="pokTypes">${item.types.map(element => {
       return `
-          <img class="pokemonTypeImg" src="assets/${element.type.name}.ico" alt="${element.type.name}">
+          <img class="pokemonTypeImg" src="assets/${element.type.name}.png" alt="${element.type.name}">
           `}).join('')}
         </p>
       </div> 

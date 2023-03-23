@@ -47,7 +47,10 @@ button {
 
 input {
   height: 1.5rem;
+  margin-top: 0.5rem;
   border-radius: 5px;
+  border:none;
+  box-shadow: 0 0 10px white;
 }
 
 body {
@@ -259,8 +262,8 @@ body {
 }
 
 .pokemonTypeImg {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .pokemonImg {
