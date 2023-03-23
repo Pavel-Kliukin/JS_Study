@@ -7,12 +7,18 @@
 :root {
   --card-width: 11rem;
   --card-height: 18rem;
+  --textColor:  rgb(112, 219, 249);
+  --colorLight: #5ddcff;
+  --colorMiddle: #3c67e3;
+  --colorDark: #4e00c2;
+  --colorBG: rgb(48, 46, 46);
 }
 
 * {  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -26,9 +32,22 @@ h2 {
 button {
   width: 6rem;
   height: 2rem;
+  background-color: var(--colorBG);
+  color: white;
   border-radius: 5px;
-  border: none;
+  border-color: var(--colorMiddle);
   margin: 0.5rem 0.5rem;
+  box-shadow: 0 0 10px white;
+}
+
+.pressedGenButton {
+  color: var(--colorLight);
+  box-shadow: 1px 1px 20px white;
+}
+
+input {
+  height: 1.5rem;
+  border-radius: 5px;
 }
 
 body {
@@ -54,7 +73,8 @@ body {
 
 #commonSearchBox {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #typeButtons {
@@ -68,11 +88,16 @@ body {
 .typeIcons {
   width: 30px;
   height: 30px;
+  filter: grayscale(90%);
+}
+
+.typeIcons:hover {
+  filter: none;
 }
 
 .pressed {
-  width: 40px;
-  height: 40px;
+  filter: none;
+  box-shadow: 0 0 10px white;
 }
 
 #generationsChoice {
@@ -88,17 +113,34 @@ body {
   justify-content: center;
 }
 
+#searchByName {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: flex-start;
+}
+
+#pokNameLable {
+  font-size: 0.8rem;
+}
+
+#nameInput {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
 #cards {
   display: flex;
   flex-wrap: wrap;
 }
 
 #startScreenCard {
-  width: calc(var(--card-width)*2);
-  height: calc(var(--card-height)*2);
+  width: calc(var(--card-width)*1.5);
+  height: calc(var(--card-height)*1.5);
   font-family: cursive;
-  font-size: 2rem;
-  color: rgb(88 199 250 / 100%);
+  font-size: 1.5rem;
+  color: var(--textColor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +155,7 @@ body {
   border-radius: 8px;
   background-image: linear-gradient(
     var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+    , var(--colorLight), var(--colorMiddle), var(--colorDark));
     position: absolute;
     z-index: -1;
     top: -1%;
@@ -135,7 +177,7 @@ body {
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(
     var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+    , var(--colorLight), var(--colorMiddle), var(--colorDark));
     opacity: 1;
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
@@ -146,10 +188,10 @@ body {
   width: var(--card-width);
   height: var(--card-height);
   border-radius: 5px;
-  border-color: #3c67e3;
+  border-color: var(--colorMiddle);
   border-style: solid;
   border-width: 2px;
-  background-color: rgb(48, 46, 46);
+  background-color: var(--colorBG);
   margin: 2rem;
   display: flex;
   flex-direction: column;
@@ -168,7 +210,7 @@ body {
   border-radius: 8px;
   background-image: linear-gradient(
     var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+    , var(--colorLight), var(--colorMiddle), var(--colorDark));
     position: absolute;
     z-index: -1;
     top: -1%;
@@ -190,7 +232,7 @@ body {
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(
     var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+    , var(--colorLight), var(--colorMiddle), var(--colorDark));
     opacity: 1;
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
@@ -252,4 +294,20 @@ body {
 
 .data {
   margin-left: 2rem;
+}
+
+/* BACK TO TOP BUTTON */
+#backToTop {
+  /* to fix a button at the right bottom position */
+  position: fixed;
+  opacity: 80%;
+  height: 45px;
+  width: 45px;
+  font-size: 2rem;
+  background-color: var(--colorMiddle);
+  bottom: 2rem;
+  right: 2rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  display: none;
 }

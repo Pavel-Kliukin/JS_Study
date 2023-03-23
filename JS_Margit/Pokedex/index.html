@@ -69,7 +69,7 @@
           <label for="rock"><img class="typeIcons" id="rockImg" src="/assets/Rock.ico" alt="Rock"></label>
           
           <input class="typeInput" type="checkbox" id="steel" onclick="typeFilter(this.id)">
-          <label for="steel"><img class="typeIcons" id="steelImg" src="/assets/Steel.ico" alt="steel"></label>
+          <label for="steel"><img class="typeIcons" id="steelImg" src="/assets/Steel.ico" alt="Steel"></label>
           
           <input class="typeInput" type="checkbox" id="ice" onclick="typeFilter(this.id)">
           <label for="ice"><img class="typeIcons" id="iceImg" src="/assets/Ice.ico" alt="Ice"></label>
@@ -86,8 +86,10 @@
       </div>
       <div id="searchByName">
         <h2>Search by name</h2>
-        <input type="text" id="pokName">
-        <label for="pokName">Enter pokemon's name</label>
+        <div id="nameInput">
+          <label for="pokName" id="pokNameLable">Enter pokemon's name:</label>
+          <input type="text" id="pokName">
+        </div>
       </div>
     </div>
   </div>
@@ -99,6 +101,7 @@
   <footer>
     <p id="copyrightText">Copyright © Made by Pavel Kliukin in 2023</p>
   </footer>
+  <button id="backToTop">↑</button>
   <script src="main.js"></script>
 </body>
 </html>

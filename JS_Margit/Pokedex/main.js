@@ -15,9 +15,23 @@ fetch(`https://pokeapi.co/api/v2/pokemon?limit=1015&offset=0`)
     })
   })
 
+// function to turn on/off pressed state for genereration buttons
+function genButtonsHighlight (g = 0) {
+  for (i = 1; i <= 9; i++) {
+    if (g == i) {
+      document.getElementById('gen' + i).classList.add('pressedGenButton')
+    } else {
+      document.getElementById('gen' + i).classList.remove('pressedGenButton')
+    }
+  }
+}
+
 //This function startes from index.html by button click (i = generation number)
-function chooseGen (i = false) {
-  i = +i - 1
+function chooseGen (g = false) {
+
+  g = +g;
+  genButtonsHighlight(g) // generation button pressed/unpressed state
+
   const gen = [
     { startFrom: 0, limit: 150 },
     { startFrom: 151, limit: 100 },
@@ -29,7 +43,7 @@ function chooseGen (i = false) {
     { startFrom: 809, limit: 96 },
     { startFrom: 905, limit: 110 },
   ]
-  makeOutputArray(gen[i].startFrom, gen[i].limit)
+  makeOutputArray(gen[g - 1].startFrom, gen[g - 1].limit)
 }
 
 // MAKE AN ARRAY OF CHOSEN POKEMON GENERATION
@@ -84,7 +98,7 @@ function removeNonPickedTypes (outputArray) {
   output(outputArrayCopy)
 }
 
-// Search pokemon by name
+// SEARCH POKEMON BY NAME
 // It searches online in array of all pokemons
 
 let searchInput = document.querySelector('#pokName')
@@ -93,6 +107,7 @@ searchInput.addEventListener('input', (event) => {
 })
 
 function searchByName (name) {
+  genButtonsHighlight() // generation button pressed/unpressed state
   outputArray = []
   for (const pokemon of allPokemonsArray) {
     if (pokemon.name.toLowerCase().includes(name.toLowerCase())) {
@@ -106,6 +121,10 @@ function searchByName (name) {
 function output (data) {
 
   document.querySelector('#cards').innerHTML = data.map(item => {
+
+    let src = item.sprites.other.dream_world.front_default
+    if (src == null) { src = 'assets/noImage.png' }
+
     return `
     <div class="card">
       <div class="idAndTypes">
@@ -116,9 +135,29 @@ function output (data) {
           `}).join('')}
         </p>
       </div> 
-      <img class="pokemonImg" src="${item.sprites.other.dream_world.front_default}" alt="${item.name}">
+      <img class="pokemonImg" src="${src}" alt="${item.name}">
       <div class="bottomOfCard">
         <p class="pokName">${item.name.toUpperCase()}</p>  
       </div>
     </div>` }).join('')
 }
+
+// ### BACK TO TOP BUTTON CHANGE ON SCROLL ###
+const backToTopButton = document.querySelector('#backToTop')
+window.onscroll = () => {
+
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    backToTopButton.style.display = 'block';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+}
+
+// This code will scroll everything to top
+const getToTop = () => {
+  // we need to write both lines, because they are working in different browsers:
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+backToTopButton.addEventListener('click', getToTop)
+// ---------------------------------------
